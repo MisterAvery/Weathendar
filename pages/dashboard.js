@@ -5,6 +5,7 @@ import Navbar from '@/components/Dashboard/Navbar'
 import { useStateContext } from '@/context/StateContext'
 import { useRouter } from 'next/router'
 
+// Reroutes user to the / directory
 
 const Dashboard = () => {
 

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
+// /animals/animalSlug
+
 const AnimalPage = () => {
   const router = useRouter();
   const { animalSlug } = router.query;

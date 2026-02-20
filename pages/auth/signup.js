@@ -5,6 +5,9 @@ import { useStateContext } from '@/context/StateContext'
 import { isEmailInUse, register} from '@/backend/Auth'
 import Link from 'next/link'
 import Navbar from '@/components/Dashboard/Navbar'
+
+// auth/signup
+
 const Signup = () => {
 
   const { user, setUser } = useStateContext()

@@ -9,13 +9,19 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
+  body {
+    min-height: 100vh;  
+    font-family: sans-serif;
+    background: repeating-linear-gradient(-53deg, white 0 5%, #eee 5% 10%);
+  }
 `
 
 export default function App({ Component, pageProps }) {
   return (
     <>
         <Head>
-          <title>MVP Starter</title>
+          <title>Weathendar</title>
           <meta name='description' content='Put a description here about your app'/>
           <meta name='robots' content='index, follow'/>
           <link rel="apple-touch-icon" sizes="180x180" href="/favicon_package/apple-touch-icon.png"/>

@@ -4,14 +4,16 @@ import Link from 'next/link'
 import { logOut } from '@/backend/Auth';
 import { useStateContext } from '@/context/StateContext';
 import Home from '@/components/Dashboard/Home'
+
 const Navbar = () => {
   const { setUser } = useStateContext()
 
   return (
     <Nav>
-      <Logo onClick={() => logOut(setUser)} href="/">Weathendar</Logo>
+      <Logo onClick={() => logOut(setUser)} href="/auth/login">Weathendar</Logo>
       <Home></Home>
       <NavLinks>
+        <ButtonLink href="/weather">Weather</ButtonLink> <span Style="color: white;">|</span>
         <ButtonLink href="/auth/signup">Sign Up</ButtonLink>
         <ButtonLink href="/auth/login">Login</ButtonLink>
       </NavLinks>
@@ -21,12 +23,12 @@ const Navbar = () => {
 
 const Nav = styled.nav`
   height: 9vh;
-  padding: 0 5rem;
+  padding: 0 5%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background: #f9a51d;
+  background: #25abba;
   border-bottom: 1px solid black;
 `;
 
@@ -36,14 +38,14 @@ const Logo = styled(Link)`
   padding: 0.5em 1em;
   background: white;
   border-radius: 4px;
-  color: #6948a3;
+  color: #8a37b0;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
 `;
 
 const NavLinks = styled.div`
-  background: #6948a3;
+  background: #8a37b0;
   border-radius: 3px;
   padding: 0.5em;
 `;

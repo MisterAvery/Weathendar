@@ -17,7 +17,7 @@ const Square = styled(Link)`
   justify-content: center;
   width: 43px; // Adjust the size as needed
   height: 43px; // Adjust the size as needed
-  background-color: #6948a3; // Adjust the background color as needed
+  background-color: #8a37b0; // Adjust the background color as needed
   color: white;
   border-radius: 4px; // Adjust for square or rounded corners
   text-decoration: none;

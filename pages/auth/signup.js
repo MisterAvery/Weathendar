@@ -47,14 +47,14 @@ const Signup = () => {
 
   return (
     <>
-    <Navbar/>
+    <Navbar></Navbar>
     <Section>
       <div>
         <Title>Hello There!</Title>
         <br></br>
-        <h3>Let's get this started</h3>
-      </div>
-      <div>
+        <h3 Style="color: black;">Let's get this started</h3>
+        <br/>
+        <br/>
         <Header>Sign Up</Header>
         <InputWrapper>
           <InputTitle>Email</InputTitle>
@@ -75,12 +75,16 @@ const Signup = () => {
 }
 
 const Section = styled.section`
-  min-height: 65vh;
+  width: 45%;
+  min-height: 75vh;
+  margin: 8vh auto;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background: #3333;
+  background: #f0f5f4;
   padding: 1.5rem;
+  border-radius: 4px;
+  border: 1px solid black;
 `;
 
 const InputWrapper = styled.div`
@@ -99,19 +103,21 @@ const Title = styled.h1`
   
   &::after {
     content: '';
-    width: 130%;
-    height: 130%;
-    background: #692d91;
+    width: 105%;
+    height: 120%;
+    background: #8a37b0;
+    border-radius: 4px;
     position: absolute;
-    top: -15%;
-    left: -15%;
+    top: -10%;
+    left: -18%;
     z-index: -1;
-    transform: skew(25deg);
+    transform: skew(14deg);
   }
 `;
 
 const Header = styled.h1`
   font-size: 26px;
+  color: #8a37b0;
 `;
 
 const Input = styled.input`
@@ -125,16 +131,17 @@ const Input = styled.input`
 const InputTitle = styled.label` /* Changed  to label for semantics */
   display: block;
   font-size: 14px;
-  color: #666;
+  color: black;
 `;
 
 const MainButton = styled.button`
-  background-color: #6948a3;
+  background-color: #8a37b0;
   padding: 0.25rem 0.5rem;
   color: white;
   margin-top: 1rem;
   padding: 0.5em 1em;
   border-radius: 4px;
+  border: 1px solid black;
 
   &:hover {
     background-color: #692d91;
@@ -143,7 +150,7 @@ const MainButton = styled.button`
 
 const UserAgreementText = styled.p`
   font-size: 12px;
-  color: #666;
+  color: #b5b5b5;
   margin-top: 20px;
   text-align: center;
 `;

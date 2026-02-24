@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     min-height: 100vh;  
     font-family: sans-serif;
-    background: repeating-linear-gradient(-53deg, white 0 5%, #eee 5% 10%);
+    background: repeating-linear-gradient(-53deg, #e1edf4 0 2%, #f0f5f4 2% 4%);
   }
 `
 

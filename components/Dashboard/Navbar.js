@@ -10,10 +10,11 @@ const Navbar = () => {
 
   return (
     <Nav>
-      <Logo onClick={() => logOut(setUser)} href="/auth/login">Weathendar</Logo>
-      <Home></Home>
+      <Logo onClick={() => logOut(setUser)} href="/dashboard">Weathendar</Logo>
       <NavLinks>
-        <ButtonLink href="/weather">Weather</ButtonLink> <span Style="color: white;">|</span>
+        <ButtonLink href="/dashboard">Dashboard</ButtonLink>
+        <ButtonLink href="/weather">Weather</ButtonLink> 
+        <span Style="color: white;">|</span>
         <ButtonLink href="/auth/signup">Sign Up</ButtonLink>
         <ButtonLink href="/auth/login">Login</ButtonLink>
       </NavLinks>
@@ -42,16 +43,18 @@ const Logo = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
+  box-shadow: -2.5px 2.5px 0 2.5px #b5b5b5;
 `;
 
 const NavLinks = styled.div`
   background: #8a37b0;
   border-radius: 3px;
-  padding: 0.5em;
+  padding: 0.7em 0.5em;
+  box-shadow: -2.5px 2.5px 0 2.5px #692d91;
 `;
 
 const ButtonLink = styled(Link)`
-  margin: 1.5em;
+  margin: 0 1.2em;
   text-decoration: none;
   color: white;
   font-weight: 600;

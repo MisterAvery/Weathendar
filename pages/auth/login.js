@@ -27,12 +27,11 @@ const Login = () => {
     <Navbar></Navbar>
     <Section>
       <div>
-        <Title>Welcome Back!</Title>
+        <Title>Login</Title>
         <br></br>
-        <h3>Let's get productive</h3>
+        <h3>Welcome back! We're ready if you are</h3>
         <br/>
         <br/>
-        <Header>Login</Header>
         <InputWrapper>
           <InputTitle>Email</InputTitle>
           <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
@@ -58,10 +57,11 @@ const Section = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background: #e1edf4;
+  background: #f0f5f4;
   padding: 1.5rem;
   border-radius: 4px;
   border: 1px solid black;
+  box-shadow: -4px 4px 0 4px #555;
 `;
 
 const InputWrapper = styled.div`
@@ -72,7 +72,7 @@ const InputWrapper = styled.div`
 const Title = styled.h1`
   font-style: italic;
   letter-spacing: 1px;
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   color: white;
   z-index: 0;
 
@@ -80,13 +80,13 @@ const Title = styled.h1`
   
   &::after {
     content: '';
-    width: 105%;
+    width: 95%;
     height: 120%;
     background: #ffa56f;
     border-radius: 4px;
     position: absolute;
     top: -10%;
-    left: -18%;
+    left: -12%;
     z-index: -1;
     transform: skew(14deg);
   }

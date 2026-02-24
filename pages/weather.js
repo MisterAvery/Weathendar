@@ -1,7 +1,8 @@
 import Navbar from '@/components/Dashboard/Navbar';
+import FlexDiv from '@/components/FlexDiv';
 import React from 'react'
 import styled from 'styled-components';
-import { WiDaySunny } from 'weather-icons-react'
+import { WiDaySunny } from 'weather-icons-react';
 
 // /weather
 
@@ -52,14 +53,6 @@ const GridDiv = styled.div`
   row-gap: 3rem;
   column-gap: 2rem;;
 `;
-
-const FlexDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
-
 const Header = styled.h1`
   font-size: 26px;
   color: #8a37b0;
@@ -67,6 +60,8 @@ const Header = styled.h1`
 `;
 
 const InfoWrapper = styled(FlexDiv)`
+  flex-direction: column;
+  box-shadow: -3.5px 3.5px 0 3.5px #555;
   background: #f0f5f4;
   padding: 1.5rem;
   border: 1px solid black;

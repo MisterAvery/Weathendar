@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Navbar from '@/components/Dashboard/Navbar'
 import { useStateContext } from '@/context/StateContext'
 import { useRouter } from 'next/router'
+import FlexDiv from '@/components/FlexDiv'
 
 // Reroutes user to the / directory
 
@@ -74,16 +75,8 @@ const Dashboard = () => {
 
 //STYLED COMPONENTS
 const Section = styled.section`
-  display: flex;
-  width: 100%;
-  height: 91vh;
-  overflow-y: auto;
-`;
-
-const Div = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // height: 91vh;
+  // overflow-y: auto;
 `;
 
 const Left = styled.div`
@@ -91,9 +84,13 @@ const Left = styled.div`
   width: 82%;
 `;
 
-const Right = styled(Div)`
+const Right = styled(FlexDiv)`
+  position: absolute;
+  top: 9vh;
+  left: 82%;
   background: #e3e3e3;
   width: 18%;
+  height: 91vh;
   border-left: 1px solid black;
   flex-direction: column;
 
@@ -105,7 +102,7 @@ const Right = styled(Div)`
   }
 `;
 
-const QuoteBox = styled(Div)`
+const QuoteBox = styled(FlexDiv)`
   font-size: 1.4rem;
   font-style: italic;
   text-align: right;
@@ -130,7 +127,7 @@ const DateBar = styled.div`
   color: white;
 `;
 
-const TimeBar = styled(Div)`
+const TimeBar = styled(FlexDiv)`
   background: #ffa56f;
   justify-content: space-evenly;
   position: absolute;
@@ -140,7 +137,7 @@ const TimeBar = styled(Div)`
   border-bottom: 1px solid black;
 `;
 
-const ItemRowWrapper = styled(Div)`
+const ItemRowWrapper = styled(FlexDiv)`
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
@@ -151,7 +148,7 @@ const ItemRowWrapper = styled(Div)`
   padding-bottom: 1rem;
 `;
 
-const ItemRow = styled(Div)`
+const ItemRow = styled(FlexDiv)`
   justify-content: left;
   width: 100%;
   height: 10.5vh;

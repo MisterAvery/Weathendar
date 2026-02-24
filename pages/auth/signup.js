@@ -50,12 +50,11 @@ const Signup = () => {
     <Navbar></Navbar>
     <Section>
       <div>
-        <Title>Hello There!</Title>
+        <Title>Sign Up</Title>
         <br></br>
-        <h3 Style="color: black;">Let's get this started</h3>
+        <h3 Style="color: black;">Hello there! Welcome to Weathendar. <br/> Let's get this started</h3>
         <br/>
         <br/>
-        <Header>Sign Up</Header>
         <InputWrapper>
           <InputTitle>Email</InputTitle>
           <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
@@ -85,6 +84,7 @@ const Section = styled.section`
   padding: 1.5rem;
   border-radius: 4px;
   border: 1px solid black;
+  box-shadow: -4px 4px 0 4px #555;
 `;
 
 const InputWrapper = styled.div`
@@ -95,7 +95,7 @@ const InputWrapper = styled.div`
 const Title = styled.h1`
   font-style: italic;
   letter-spacing: 1px;
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   color: white;
   z-index: 0;
 
@@ -103,13 +103,13 @@ const Title = styled.h1`
   
   &::after {
     content: '';
-    width: 105%;
+    width: 95%;
     height: 120%;
     background: #8a37b0;
     border-radius: 4px;
     position: absolute;
     top: -10%;
-    left: -18%;
+    left: -12%;
     z-index: -1;
     transform: skew(14deg);
   }

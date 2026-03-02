@@ -1,36 +1,78 @@
 import Navbar from '@/components/Dashboard/Navbar';
 import FlexDiv from '@/components/FlexDiv';
 import React from 'react'
+import { useState } from 'react';
 import styled from 'styled-components';
-import { WiDaySunny } from 'weather-icons-react';
+// import { WiDaySunny } from 'weather-icons-react';
 
 // /weather
 
 const Weather = () => {
+  // Takes the data from a API call
+  let [ data, setData] = useState(() => getWeatherData());
+
+  function UTCtoDate(timestamp) {
+    let converted = new Date(timestamp);
+    return converted.getHours() + ":" + converted.getSeconds();
+  }
+  
+  async function callWeatherAPI(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    const KEY = '1a63b31fa752648c49caa682197af3d8';
+
+    await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&exclude={part}&appid=${KEY}&units=imperial`)
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        setData(response);
+      }
+      ).catch(err => console.error(err));
+  }
+
+  // Call the OpenWeatherMap API and render the information
+  async function getWeatherData() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        // Success callback 
+        callWeatherAPI,
+
+        // Failure callback
+        _ => { alert("Unable to retrieve location data. Please try again.") },
+
+        // Timeout the request after 30 seconds
+        { timeout: 30000 }
+      );
+    } else {
+      alert("Unable to get your location. Please try again");
+    }
+  }
+  
   return (
     <>
       <Navbar></Navbar>
       <GridDiv>
-        <InfoWrapper Style="grid-area: Icon;">
-          <WiDaySunny size={200} color="#ffa56f"></WiDaySunny>
+        <InfoWrapper style={{gridArea: "Icon"}}>
+          <h2>{data.weather ? data.weather[0]?.main : "..."}</h2>
+          <img  src={data.weather ? "https://openweathermap.org/payload/api/media/file/" + data.weather[0].icon + ".png" : "..."}></img>
         </InfoWrapper>
-        <InfoWrapper Style="grid-area: Description;">
-          <Header>Description</Header>
-          <p>Becoming partly cloudy later with any flurries or snow showers ending by midnight. Low 18F. Winds WNW at 10 to 15 mph. Chance of snow 30%</p>
+        <InfoWrapper style={{gridArea: "Description"}}>
+          <h2>{data.weather ? data.weather[0]?.main : "..."}</h2>
         </InfoWrapper>
-        <InfoWrapper Style="grid-area: Facts;">
-          <Header>City: State College</Header>
+        <InfoWrapper style={{gridArea: "Facts"}}>
+          <Header>Weather for {data?.name || "..."}</Header>
           <ul>
-            <li><strong>Temperature:</strong> 19 F</li>
-            <li><strong>Range: </strong>H: 32 F L: 18 F</li>
-            <li><strong>Feels Like: </strong>8 F</li>
-            <li><strong>Humidity: </strong>75%</li>
-            <li><strong>Dew Pont: </strong>11 F</li>
+            <li><strong>Temperature: </strong>{data.main?.temp || "..."} F</li>
+            <li><strong>Range: </strong>H: {data.main?.temp_max} F L: {data.main?.temp_min || "..."} F</li>
+            <li><strong>Feels Like: </strong>{data.main?.feels_like || "..."} F</li>
+            <li><strong>Humidity: </strong>{data.main?.humidity || "..."}%</li>
+            <li><strong>Pressure: </strong>{data.main?.pressure || "..."} inHg</li>
+            <li><strong>Wind: </strong> Winds of {data.wind?.speed || "..."} mph{data.wind?.gust ? ` and gusts up to ${data.wind?.gust}` : ""}</li>
           </ul>
           <br/>
           <ul>
-            <li><strong>Sunrise: </strong>6:52 AM</li>
-            <li><strong>Sunset: </strong>5:57 PM</li>
+            <li><strong>Sunrise: </strong>{data.sys?.sunrise ? UTCtoDate(data.sys.sunrise * 1000) : "..."}</li>
+            <li><strong>Sunset: </strong>{data.sys?.sunset ? UTCtoDate(data.sys.sunset * 1000) : "..."}</li>
           </ul>
         </InfoWrapper>
       </GridDiv>

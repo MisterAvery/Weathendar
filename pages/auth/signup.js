@@ -29,12 +29,12 @@ const Signup = () => {
     }
 
     return true;
-}
+  }
 
   async function handleSignup(){
     const isValidEmail = await validateEmail()
-    // console.log('isValidEmail', isValidEmail)
-    // if(!isValidEmail){ return; }
+    console.log('isValidEmail', isValidEmail)
+    if(!isValidEmail){ return; }
     
     try{
         await register(email, password, setUser)
@@ -52,7 +52,7 @@ const Signup = () => {
       <div>
         <Title>Sign Up</Title>
         <br></br>
-        <h3 Style="color: black;">Hello there! Welcome to Weathendar. <br/> Let's get this started</h3>
+        <h3 style={{color: "black"}}>Hello there! Welcome to Weathendar. <br/> Let's get this started</h3>
         <br/>
         <br/>
         <InputWrapper>

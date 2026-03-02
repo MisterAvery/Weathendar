@@ -10,11 +10,11 @@ const Navbar = () => {
 
   return (
     <Nav>
-      <Logo onClick={() => logOut(setUser)} href="/dashboard">Weathendar</Logo>
+      <Logo onClick={() => logOut(setUser)} href="/">Weathendar</Logo>
       <NavLinks>
         <ButtonLink href="/dashboard">Dashboard</ButtonLink>
         <ButtonLink href="/weather">Weather</ButtonLink> 
-        <span Style="color: white;">|</span>
+        <span style={{color: "white"}}>|</span>
         <ButtonLink href="/auth/signup">Sign Up</ButtonLink>
         <ButtonLink href="/auth/login">Login</ButtonLink>
       </NavLinks>

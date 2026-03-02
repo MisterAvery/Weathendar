@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import { useStateContext } from '@/context/StateContext'
-import {login, isEmailInUse} from '@/backend/Auth'
+import {loginUser, isEmailInUse} from '@/backend/Auth'
 import Link from 'next/link'
 import Navbar from '@/components/Dashboard/Navbar'
 
@@ -14,11 +14,19 @@ const Login = () => {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
 
-  const router = useRouter()
+  const router = useRouter();
 
 
-  async function handleLogin(){
-
+  async function handleLogin() {
+    // If the username and password are correct, then set the user to the current user
+    try {
+      await loginUser(email, password);
+      setUser(user);
+      router.push('/dashboard');
+    } catch(err) {
+        console.log('Error logging in', err);
+        alert("There was an error logging you in. Please try again or create an account.");
+    }
   }
 
 

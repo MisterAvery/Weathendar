@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link'
-import { logOut } from '@/backend/Auth';
 import { useStateContext } from '@/context/StateContext';
 import Home from '@/components/Dashboard/Home'
 
@@ -10,7 +9,7 @@ const Navbar = () => {
 
   return (
     <Nav>
-      <Logo onClick={() => logOut(setUser)} href="/">Weathendar</Logo>
+      <Logo href="/">Weathendar</Logo>
       <NavLinks>
         <ButtonLink href="/dashboard">Dashboard</ButtonLink>
         <ButtonLink href="/weather">Weather</ButtonLink> 
